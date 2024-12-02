@@ -1,0 +1,12 @@
+{
+  "name": "desafio-psi-educar-games",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido para processo seletivo interno na Educar games",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
