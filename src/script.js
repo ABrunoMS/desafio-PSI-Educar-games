@@ -1,10 +1,11 @@
+//captura o form e adiciona função ao botão
 document.getElementById('loginForm')?.addEventListener('submit', function (e) {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
     if (email === 'colaborador@educargames.com' && password === '123456') {
-        window.location.href = 'main.html';
+        window.location.href = 'src/main.html';
     } else {
         document.getElementById('error-message').textContent = 'Email ou senha inválidos!';
     }
@@ -66,3 +67,40 @@ function setupCarouselNavigation(container, carousel, cardWidth) {
         }
     });
 }
+
+document.getElementById('apply-button')?.addEventListener('click', function (e) {
+    window.location.href = 'formRegisterVacancy.html';
+});
+
+//funções do formulário de cadastro
+document.getElementById('job-application-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('name', document.getElementById('name').value);
+    formData.append('email', document.getElementById('email').value);
+    formData.append('tel', document.getElementById('tel').value);
+    formData.append('team', document.getElementById('team').value);
+    formData.append('role', document.getElementById('role').value);
+    formData.append('resume', document.getElementById('resume').files[0]);
+
+    alert('Aplicação enviada com sucesso!')
+    this.reset()
+
+    //caso existisse um banco de dados para enviar o formulário poderia utilizar esse código
+    //seria preciso apenas alterar a função para assíncrona
+   /* try {
+        const response = await fetch('https://seu-backend-api.com/apply', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            alert('Aplicação enviada com sucesso!');
+        } else {
+            alert('Erro ao enviar a aplicação.');
+        }
+    } catch (error) {
+        alert('Ocorreu um erro: ' + error.message);
+    }*/
+});

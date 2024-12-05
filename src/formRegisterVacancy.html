@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario inscrição</title>
+    <link rel="stylesheet" href="styleForm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="../images/1668031907482.jfif" alt="Logo" class="header-logo">
+        <div class="header-text">
+            <p class="levelup">LevelUp</p>
+            <p class="program">Program</p>
+        </div>
+    </header>
+    <div class="main-container">
+        <form id="job-application-form" class="form-container">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="tel">Tel:</label>
+            <input type="tel" id="tel" name="tel" required>
+
+            <label for="team">Equipe:</label>
+            <input type="text" id="team" name="team" required>
+
+            <label for="role">Cargo:</label>
+            <input type="text" id="role" name="role" required>
+
+            <label for="resume">Currículo(apenas PDF):</label>
+            <input type="file" id="resume" name="resume" required accept="application/pdf" required>
+
+            <button type="submit" class="apply-button">Enviar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
