@@ -28,7 +28,7 @@ header {
 }
 
 .header-logo {
-    height: 100%;
+    height: 83px;
     width: auto;
 }
 
@@ -250,5 +250,21 @@ body {
 @media (max-width: 768px) {
     .green-card {
         max-width: 100%; 
+    }
+}
+
+/*Estilo página de curso*/
+.curse-content {
+    display: flex;
+    gap: 20px;
+}
+
+.curse-content p {
+    max-width: 900px;
+}
+
+@media (max-width: 500px) {
+    .curse-content {
+        flex-direction: column;
     }
 }
