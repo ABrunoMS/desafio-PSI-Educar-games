@@ -1,4 +1,4 @@
-//captura o form e adiciona função ao botão
+//captura o form do login e adiciona função ao botão
 document.getElementById('loginForm')?.addEventListener('submit', function (e) {
     e.preventDefault();
     const email = document.getElementById('email').value;
@@ -68,11 +68,34 @@ function setupCarouselNavigation(container, carousel, cardWidth) {
     });
 }
 
+//funções do formulário de cadastro
+//botão cadastro na vaga
 document.getElementById('apply-button')?.addEventListener('click', function (e) {
     window.location.href = 'formRegisterVacancy.html';
 });
 
-//funções do formulário de cadastro
+//botão cadastro curso
+document.getElementById('applyCurse-button')?.addEventListener('click', function (e) {
+    window.location.href = 'formRegisterVacancy.html?omitResumeUpload=true';
+});
+
+//Oculta e remove a obrigatoriedade do campo de currículo no formulário de cursos
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const omitResumeUpload = params.get('omitResumeUpload');
+
+    if (omitResumeUpload === 'true') {
+        const resumeUploadSection = document.getElementById('resume-upload-section');
+        const resumeInput = document.getElementById('resume');
+        if (resumeUploadSection) {
+            resumeUploadSection.style.display = 'none';
+        }
+        if (resumeInput) {
+            resumeInput.required = false;
+        }
+    }
+});
+
 document.getElementById('job-application-form').addEventListener('submit', function (event) {
     event.preventDefault();
 

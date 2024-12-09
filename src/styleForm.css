@@ -30,6 +30,7 @@ header {
 .header-logo {
     height: 83px;
     width: auto;
+    margin-bottom: -1px;
 }
 /*estilos gerais*/
 body {
