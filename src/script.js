@@ -24,7 +24,9 @@ function initializeCarousel() {
         const carousel = container.querySelector('.carousel');
         
         // Captura a largura do primeiro card
-        const cardWidth = carousel.querySelector('.card').getBoundingClientRect().width + 20; 
+        const cardWidth = carousel.querySelector('.card').getBoundingClientRect().width;
+        const gap = parseFloat(getComputedStyle(carousel).gap) || 0; 
+        const cardOffset = cardWidth + gap; 
         let currentIndex = 0;
         
         const isSmallScreen = window.innerWidth < 990;
@@ -32,8 +34,8 @@ function initializeCarousel() {
         if (isSmallScreen) {
             prevButton.style.display = 'block';
             nextButton.style.display = 'block';
-            carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-            setupCarouselNavigation(container, carousel, cardWidth);
+            carousel.style.transform = `translateX(-${currentIndex * cardOffset}px)`;
+            setupCarouselNavigation(container, carousel, cardOffset);
         } else {
             prevButton.style.display = 'none';
             nextButton.style.display = 'none';
@@ -42,25 +44,25 @@ function initializeCarousel() {
     });
 }
 
-function setupCarouselNavigation(container, carousel, cardWidth) {
+function setupCarouselNavigation(container, carousel, cardOffset) {
     const prevButton = container.querySelector('.prev');
     const nextButton = container.querySelector('.next');
     let currentIndex = 0;
     
     // Calcula o número máximo de slides com base no tamanho do container e do card
-    const maxIndex = Math.max(0, carousel.children.length - Math.floor(container.offsetWidth / cardWidth));
+    const maxIndex = Math.max(0, carousel.children.length - Math.floor(container.offsetWidth / cardOffset));
 
     prevButton.addEventListener('click', () => {
         if (currentIndex > 0) {
             currentIndex-=1;
-            carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            carousel.style.transform = `translateX(-${currentIndex * cardOffset}px)`;
         }
     });
 
     nextButton.addEventListener('click', () => {
         if (currentIndex < maxIndex) {
             currentIndex+=1;
-            carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            carousel.style.transform = `translateX(-${currentIndex * cardOffset}px)`;
         } else {
             currentIndex = 0; 
             carousel.style.transform = `translateX(0px)`; // Reseta a posição do carrossel
